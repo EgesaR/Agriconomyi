@@ -18,7 +18,10 @@
     "ios": {
       "supportsTablet": true,
       "package": "com.agriconomy",
-      "bundleIdentifier": "com.agriconomy"
+      "bundleIdentifier": "com.agriconomy",
+      "config": {
+        "usesNonExemptEncryption": false,
+      }
     },
     "android": {
       "adaptiveIcon": {

@@ -4,7 +4,7 @@ module.exports = function(api) {
     presets: ['babel-preset-expo'],
     env: {
       production: {
-        plugins: ["nativewind/babel",'react-native-paper/babel', "@realm/babel-plugin", ["@babel/plugin-proposal-decorators", { legacy: true }]],
+        plugins: ["nativewind/babel",'react-native-paper/babel', "@realm/babel-plugin", "react-native-reanimated/plugin", ["@babel/plugin-proposal-decorators", { legacy: true }]],
       },
     },
   };
