@@ -13,7 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import FormField from "../../components/FormField";
 import { Button } from "react-native-paper";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import { Snackbar } from "react-native-paper";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker"
 

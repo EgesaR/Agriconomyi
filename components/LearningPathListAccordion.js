@@ -9,8 +9,9 @@ const LearningPathListAccordion = ({ title, id, icon, listItem }) => {
       id={id}
       left={(props) => <Icon source={icon} size={35.5} color={"#387ef3"} />}
     >
-      {listItem.map((item, key) => (
+      {listItem.map((item, index) => (
         <List.Item
+          key={index}
           title={item.title}
           left={(props) => <List.Icon {...props} icon="file" />}
         />
