@@ -1,11 +1,80 @@
 import React, { useState, useEffect, useContext } from "react";
-import { View, Text, StyleSheet, ScrollView, Alert, Image, KeyboardAvoidingView, Platform } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Alert,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import FormField from "../../components/FormField";
-import { Button } from "react-native-paper";
+import { Button, Card, TextInput } from "react-native-paper";
 import { Link, router } from "expo-router";
+import { icons } from "../../constants";
 
+const SignIn = () => {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  return (
+    <KeyboardAvoidingView>
+      <SafeAreaView>
+        <View style={tw`bg-blue-500 h-[100%] px-3 pt-5`}>
+          <Card style={tw`flex flex-col py-20 items-center bg-[#ffffff]`}>
+            <Text style={tw`font-bold text-4xl mt-4`}>Sign in your account</Text>
+            <Button buttonColor="rgb(228 228 231)" icon="camera" mode="contained-tonal" onPress={() => console.log('Pressed')} style={tw`mt-4`}>
+              <Text style={tw`font-bold text-lg `}>Sign in with Google</Text>      
+            </Button>
+            <Button buttonColor="rgb(228 228 231)" icon="camera" mode="contained-tonal" onPress={() => console.log('Pressed')} style={tw`mt-4`}>
+              <Text style={tw`font-bold text-lg `}>Sign in with Google</Text>      
+            </Button>
+            <View style={tw`flex flex-row items-center gap-3`}>
+              <View style={tw`grow h-1 bg-black rounded-lg`}></View>
+              <Text style={tw`text-lg`}>Or continue with</Text>
+              <View style={tw`grow h-1 bg-black rounded-lg`}></View>
+            </View>
+            <View>
+              <TextInput
+                mode="outlined"
+                label="Email"
+                value={form.email}
+                onChangeText={(e: string) => setForm({ ...form, email: e })}
+              />
+              <TextInput
+                activeOutlineColor="rgb(226 232 240)"
+                value={form.password}
+                label={"Password"}
+                onChangeText={(e: string) => setForm({ ...form, password: e })}
+                mode="outlined"
+                textColor="black"
+                right={"Password" === "Password" && (
+                  <TextInput.Icon 
+                    icon={!showPassword ? icons.eye : icons.eyeHide} 
+                    onPress={() => setShowPassword(!showPassword)}
+                  />
+                )}
+                secureTextEntry={"Password" === "Password" && !showPassword}
+              />
+            </View>
+            <Text>Forgot Password?</Text>
+            <Button icon="camera" mode="contained-tonal" onPress={() => console.log('Pressed')}>
+              <Text style={tw`font-bold text-lg `}>Continue</Text>    
+            </Button>
+          </Card>
+        </View>
+      </SafeAreaView>
+    </KeyboardAvoidingView>
+  );
+};
+export default SignIn;
+
+/*
 const SignIn = ({ navigation }) => {
   const [form, setForm] = useState({
     email: "",
@@ -14,9 +83,9 @@ const SignIn = ({ navigation }) => {
 
   const handleLogin = () => {
     if (form.email.length < 1 || form.password.length < 1) {
-      
+
     } else {
-      
+
     }
   };
 
@@ -82,13 +151,4 @@ const SignIn = ({ navigation }) => {
       </KeyboardAvoidingView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {},
-  text: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10,
-  },
-});
-export default SignIn;
+*/

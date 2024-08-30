@@ -40,10 +40,10 @@ const TabStack = () => {
     <Tabs
       screenOptions={{
         tabBarShowLabel: false,
-        tabBarActiveTintColor: "#ffa001",
-        tabBarInactiveTintColor: "#cdcde0",
+        tabBarActiveTintColor: "#fff",
+        tabBarInactiveTintColor: "rgb(161 161 170)",
         tabBarStyle: {
-          backgroundColor: "#161622",
+          backgroundColor: "rgb(5 150 105)",
           borderTopWidth: 1,
           borderTopColor: "#232533",
           height: 55,
